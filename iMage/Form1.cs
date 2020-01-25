@@ -25,22 +25,24 @@ namespace iMage
 
         private void linkCaminho_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string[] aux = linkCaminho.Text.Split('\\');
+            /*string[] aux = linkCaminho.Text.Split('\\');
             string caminho = "";
             for (int x = 0; x < aux.Count() - 1; x++)
-                caminho += aux[x] + "\\";
-            Process.Start(caminho);
+                caminho += aux[x] + "\\";*/
+            if (linkCaminho.Text != "...")
+                Process.Start(linkCaminho.Text);
         }
 
         private void btnCarregar_Click(object sender, EventArgs e)
         {
-            using (var fbd = new OpenFileDialog { AddExtension = true, CheckFileExists = true, CheckPathExists = true, Filter = "Portable Network Graphics|*.png|Arquivo JPEG|*.jpg; *.jpeg|Arquivo bitmap|*.bmp|Arquivo GIF|*.gif|Todos os arquivos|*.*", Title = "Selecionar arquivo", Multiselect = false, FilterIndex = 5 })
+            using (var fbd = new OpenFileDialog { AddExtension = true, CheckFileExists = true, CheckPathExists = true, Filter = "Portable Network Graphics|*.png|Arquivo JPEG|*.jpg; *.jpeg|Arquivo bitmap|*.bmp|Arquivo GIF|*.gif|Arquivos de imagem|*.png; *.jpg; *.jpeg; *.bmp; *.gif|Todos os arquivos|*.*", Title = "Selecionar arquivo", Multiselect = false, FilterIndex = 5 })
             {
                 if (fbd.ShowDialog() == DialogResult.OK)
                 {
                     linkCaminho.Text = fbd.FileName;
                     render = new Render(fbd.FileName);
                     picImagem.Image = render.Imagem;
+                    btnAplicar.Enabled = MenuAplicar.Enabled = true;
                 }
             }
         }
@@ -70,9 +72,7 @@ namespace iMage
                 using (var sfd = new SaveFileDialog { AddExtension = true, OverwritePrompt = true, CheckPathExists = true, Filter = "Portable Network Graphics|*.png|Arquivo JPEG|*.jpg; *.jpeg|Arquivo bitmap|*.bmp|Arquivo GIF|*.gif|Todos os arquivos|*.*", Title = "Selecionar arquivo", SupportMultiDottedExtensions = true, FilterIndex = 2 })
                 {
                     if (sfd.ShowDialog() == DialogResult.OK)
-                    {
                         render.Salvar(sfd.FileName);
-                    }
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace iMage
                     {
                         case 1:
                             {
-                                imagem = render.AplicarEscalaDeCinza(render.Imagem);
+                                imagem = render.AplicarEscalaDeCinza(render.Imagem, TrackLuminosidade.Value);
                                 if (imagem != null)
                                     picImagem.Image = render.Imagem = imagem;
                                 break;
@@ -179,6 +179,11 @@ namespace iMage
             else
                 groupPersonalizar.Visible = false;
 
+            if (comboModo.SelectedIndex == 1)
+                groupOpçõesEscalaCinza.Visible = true;
+            else
+                groupOpçõesEscalaCinza.Visible = false;
+
             if (checkAlterarAutomaticamente.Checked)
                 btnAplicar.PerformClick();
         }
@@ -238,6 +243,51 @@ namespace iMage
         private void labelB_Click(object sender, EventArgs e)
         {
             trackB.Value = 100;
+        }
+
+        private void TrackLuminosidade_ValueChanged(object sender, EventArgs e)
+        {
+            labelLuminosidade.Text = $"{TrackLuminosidade.Value}%";
+        }
+
+        private void DesmarcarOpções (ToolStripMenuItem item, ToolStripMenuItem ex)
+        {
+            foreach (var x in item.DropDownItems.OfType<ToolStripMenuItem>())
+            {
+                if (x != ex)
+                    x.Checked = false;
+            }
+        }
+
+        private void MenusDimensionamento_CheckedChanged (object sender, EventArgs e)
+        {
+            DesmarcarOpções(MenuModoDimensionamento, sender as ToolStripMenuItem);
+            DimensionaImagem();
+        }
+
+        private void DimensionaImagem()
+        {
+            if (MenuDimensionamentoNormal.Checked)
+                picImagem.SizeMode = PictureBoxSizeMode.Normal;
+            else if (MenuDimensionamentoStretch.Checked)
+                picImagem.SizeMode = PictureBoxSizeMode.StretchImage;
+            else if (MenuDimensionamentoAuto.Checked)
+                picImagem.SizeMode = PictureBoxSizeMode.AutoSize;
+            else if (MenuDimensionamentoCenter.Checked)
+                picImagem.SizeMode = PictureBoxSizeMode.CenterImage;
+            else if (MenuDimensionamentoZoom.Checked)
+                picImagem.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
+        private void labelLuminosidade_Click(object sender, EventArgs e)
+        {
+            TrackLuminosidade.Value = 100;
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            this.Text = $"iMage (tamanho: ({this.Size.Width}; {this.Size.Height}))";
+            timer.Start();
         }
     }
 }

@@ -45,26 +45,42 @@
             this.checkModificarOriginal = new System.Windows.Forms.CheckBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupPersonalizar = new System.Windows.Forms.GroupBox();
-            this.labelB = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.trackB = new System.Windows.Forms.TrackBar();
-            this.labelG = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.trackG = new System.Windows.Forms.TrackBar();
-            this.labelR = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.trackR = new System.Windows.Forms.TrackBar();
-            this.labelA = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.trackA = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelA = new System.Windows.Forms.Label();
+            this.labelB = new System.Windows.Forms.Label();
+            this.trackR = new System.Windows.Forms.TrackBar();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelR = new System.Windows.Forms.Label();
+            this.labelG = new System.Windows.Forms.Label();
+            this.trackG = new System.Windows.Forms.TrackBar();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupOpçõesEscalaCinza = new System.Windows.Forms.GroupBox();
+            this.TrackLuminosidade = new System.Windows.Forms.TrackBar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelLuminosidade = new System.Windows.Forms.Label();
+            this.ctmPictureBox = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MenuModoDimensionamento = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuDimensionamentoNormal = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuDimensionamentoStretch = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuDimensionamentoAuto = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuDimensionamentoCenter = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuDimensionamentoZoom = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.MenuAplicar = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picImagem)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.panelProgressoFundo.SuspendLayout();
             this.groupPersonalizar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackG)).BeginInit();
+            this.groupOpçõesEscalaCinza.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackLuminosidade)).BeginInit();
+            this.ctmPictureBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // picImagem
@@ -75,6 +91,7 @@
             this.picImagem.BackColor = System.Drawing.Color.Transparent;
             this.picImagem.BackgroundImage = global::iMage.Properties.Resources.fundo;
             this.picImagem.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picImagem.ContextMenuStrip = this.ctmPictureBox;
             this.picImagem.Location = new System.Drawing.Point(13, 37);
             this.picImagem.Name = "picImagem";
             this.picImagem.Size = new System.Drawing.Size(337, 401);
@@ -139,6 +156,7 @@
             // btnAplicar
             // 
             this.btnAplicar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAplicar.Enabled = false;
             this.btnAplicar.Location = new System.Drawing.Point(704, 93);
             this.btnAplicar.Name = "btnAplicar";
             this.btnAplicar.Size = new System.Drawing.Size(75, 23);
@@ -172,6 +190,8 @@
             // MenuArquivo
             // 
             this.MenuArquivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuAplicar,
+            this.toolStripSeparator1,
             this.MenuSalvarComo});
             this.MenuArquivo.Name = "MenuArquivo";
             this.MenuArquivo.Size = new System.Drawing.Size(61, 20);
@@ -237,8 +257,7 @@
             // 
             // groupPersonalizar
             // 
-            this.groupPersonalizar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupPersonalizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupPersonalizar.Controls.Add(this.trackB);
             this.groupPersonalizar.Controls.Add(this.trackA);
             this.groupPersonalizar.Controls.Add(this.label1);
@@ -259,25 +278,6 @@
             this.groupPersonalizar.Text = "Personalizar";
             this.groupPersonalizar.Visible = false;
             // 
-            // labelB
-            // 
-            this.labelB.AutoSize = true;
-            this.labelB.Location = new System.Drawing.Point(146, 188);
-            this.labelB.Name = "labelB";
-            this.labelB.Size = new System.Drawing.Size(33, 13);
-            this.labelB.TabIndex = 36;
-            this.labelB.Text = "100%";
-            this.labelB.Click += new System.EventHandler(this.labelB_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 188);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(17, 13);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "B:";
-            // 
             // trackB
             // 
             this.trackB.Location = new System.Drawing.Point(36, 184);
@@ -288,85 +288,6 @@
             this.trackB.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackB.Value = 100;
             this.trackB.ValueChanged += new System.EventHandler(this.trackB_ValueChanged);
-            // 
-            // labelG
-            // 
-            this.labelG.AutoSize = true;
-            this.labelG.Location = new System.Drawing.Point(145, 134);
-            this.labelG.Name = "labelG";
-            this.labelG.Size = new System.Drawing.Size(33, 13);
-            this.labelG.TabIndex = 33;
-            this.labelG.Text = "100%";
-            this.labelG.Click += new System.EventHandler(this.labelG_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 134);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(18, 13);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "G:";
-            // 
-            // trackG
-            // 
-            this.trackG.Location = new System.Drawing.Point(35, 130);
-            this.trackG.Maximum = 100;
-            this.trackG.Name = "trackG";
-            this.trackG.Size = new System.Drawing.Size(104, 45);
-            this.trackG.TabIndex = 31;
-            this.trackG.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackG.Value = 100;
-            this.trackG.ValueChanged += new System.EventHandler(this.trackG_ValueChanged);
-            // 
-            // labelR
-            // 
-            this.labelR.AutoSize = true;
-            this.labelR.Location = new System.Drawing.Point(145, 83);
-            this.labelR.Name = "labelR";
-            this.labelR.Size = new System.Drawing.Size(33, 13);
-            this.labelR.TabIndex = 30;
-            this.labelR.Text = "100%";
-            this.labelR.Click += new System.EventHandler(this.labelR_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 13);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "R:";
-            // 
-            // trackR
-            // 
-            this.trackR.Location = new System.Drawing.Point(35, 79);
-            this.trackR.Maximum = 100;
-            this.trackR.Name = "trackR";
-            this.trackR.Size = new System.Drawing.Size(104, 45);
-            this.trackR.TabIndex = 28;
-            this.trackR.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackR.Value = 100;
-            this.trackR.ValueChanged += new System.EventHandler(this.trackR_ValueChanged);
-            // 
-            // labelA
-            // 
-            this.labelA.AutoSize = true;
-            this.labelA.Location = new System.Drawing.Point(146, 32);
-            this.labelA.Name = "labelA";
-            this.labelA.Size = new System.Drawing.Size(33, 13);
-            this.labelA.TabIndex = 27;
-            this.labelA.Text = "100%";
-            this.labelA.Click += new System.EventHandler(this.labelA_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 13);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "A:";
             // 
             // trackA
             // 
@@ -379,11 +300,228 @@
             this.trackA.Value = 100;
             this.trackA.ValueChanged += new System.EventHandler(this.trackA_ValueChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(17, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "A:";
+            // 
+            // labelA
+            // 
+            this.labelA.AutoSize = true;
+            this.labelA.Location = new System.Drawing.Point(146, 32);
+            this.labelA.Name = "labelA";
+            this.labelA.Size = new System.Drawing.Size(33, 13);
+            this.labelA.TabIndex = 27;
+            this.labelA.Text = "100%";
+            this.labelA.Click += new System.EventHandler(this.labelA_Click);
+            // 
+            // labelB
+            // 
+            this.labelB.AutoSize = true;
+            this.labelB.Location = new System.Drawing.Point(146, 188);
+            this.labelB.Name = "labelB";
+            this.labelB.Size = new System.Drawing.Size(33, 13);
+            this.labelB.TabIndex = 36;
+            this.labelB.Text = "100%";
+            this.labelB.Click += new System.EventHandler(this.labelB_Click);
+            // 
+            // trackR
+            // 
+            this.trackR.Location = new System.Drawing.Point(35, 79);
+            this.trackR.Maximum = 100;
+            this.trackR.Name = "trackR";
+            this.trackR.Size = new System.Drawing.Size(104, 45);
+            this.trackR.TabIndex = 28;
+            this.trackR.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackR.Value = 100;
+            this.trackR.ValueChanged += new System.EventHandler(this.trackR_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 188);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(17, 13);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "B:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(18, 13);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "R:";
+            // 
+            // labelR
+            // 
+            this.labelR.AutoSize = true;
+            this.labelR.Location = new System.Drawing.Point(145, 83);
+            this.labelR.Name = "labelR";
+            this.labelR.Size = new System.Drawing.Size(33, 13);
+            this.labelR.TabIndex = 30;
+            this.labelR.Text = "100%";
+            this.labelR.Click += new System.EventHandler(this.labelR_Click);
+            // 
+            // labelG
+            // 
+            this.labelG.AutoSize = true;
+            this.labelG.Location = new System.Drawing.Point(145, 134);
+            this.labelG.Name = "labelG";
+            this.labelG.Size = new System.Drawing.Size(33, 13);
+            this.labelG.TabIndex = 33;
+            this.labelG.Text = "100%";
+            this.labelG.Click += new System.EventHandler(this.labelG_Click);
+            // 
+            // trackG
+            // 
+            this.trackG.Location = new System.Drawing.Point(35, 130);
+            this.trackG.Maximum = 100;
+            this.trackG.Name = "trackG";
+            this.trackG.Size = new System.Drawing.Size(104, 45);
+            this.trackG.TabIndex = 31;
+            this.trackG.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackG.Value = 100;
+            this.trackG.ValueChanged += new System.EventHandler(this.trackG_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 134);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 13);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "G:";
+            // 
+            // groupOpçõesEscalaCinza
+            // 
+            this.groupOpçõesEscalaCinza.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupOpçõesEscalaCinza.Controls.Add(this.labelLuminosidade);
+            this.groupOpçõesEscalaCinza.Controls.Add(this.label5);
+            this.groupOpçõesEscalaCinza.Controls.Add(this.TrackLuminosidade);
+            this.groupOpçõesEscalaCinza.Location = new System.Drawing.Point(359, 196);
+            this.groupOpçõesEscalaCinza.Name = "groupOpçõesEscalaCinza";
+            this.groupOpçõesEscalaCinza.Size = new System.Drawing.Size(415, 100);
+            this.groupOpçõesEscalaCinza.TabIndex = 37;
+            this.groupOpçõesEscalaCinza.TabStop = false;
+            this.groupOpçõesEscalaCinza.Text = "Opções da escala de cinza";
+            this.groupOpçõesEscalaCinza.Visible = false;
+            // 
+            // TrackLuminosidade
+            // 
+            this.TrackLuminosidade.Location = new System.Drawing.Point(87, 28);
+            this.TrackLuminosidade.Maximum = 200;
+            this.TrackLuminosidade.Name = "TrackLuminosidade";
+            this.TrackLuminosidade.Size = new System.Drawing.Size(322, 45);
+            this.TrackLuminosidade.TabIndex = 0;
+            this.TrackLuminosidade.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.TrackLuminosidade.Value = 100;
+            this.TrackLuminosidade.ValueChanged += new System.EventHandler(this.TrackLuminosidade_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Luminosidade:";
+            // 
+            // labelLuminosidade
+            // 
+            this.labelLuminosidade.AutoSize = true;
+            this.labelLuminosidade.Location = new System.Drawing.Point(235, 56);
+            this.labelLuminosidade.Name = "labelLuminosidade";
+            this.labelLuminosidade.Size = new System.Drawing.Size(33, 13);
+            this.labelLuminosidade.TabIndex = 2;
+            this.labelLuminosidade.Text = "100%";
+            this.labelLuminosidade.Click += new System.EventHandler(this.labelLuminosidade_Click);
+            // 
+            // ctmPictureBox
+            // 
+            this.ctmPictureBox.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuModoDimensionamento});
+            this.ctmPictureBox.Name = "ctmPictureBox";
+            this.ctmPictureBox.Size = new System.Drawing.Size(223, 26);
+            // 
+            // MenuModoDimensionamento
+            // 
+            this.MenuModoDimensionamento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuDimensionamentoNormal,
+            this.MenuDimensionamentoStretch,
+            this.MenuDimensionamentoAuto,
+            this.MenuDimensionamentoCenter,
+            this.MenuDimensionamentoZoom});
+            this.MenuModoDimensionamento.Name = "MenuModoDimensionamento";
+            this.MenuModoDimensionamento.Size = new System.Drawing.Size(222, 22);
+            this.MenuModoDimensionamento.Text = "Modo de dimensionamento";
+            // 
+            // MenuDimensionamentoNormal
+            // 
+            this.MenuDimensionamentoNormal.CheckOnClick = true;
+            this.MenuDimensionamentoNormal.Name = "MenuDimensionamentoNormal";
+            this.MenuDimensionamentoNormal.Size = new System.Drawing.Size(180, 22);
+            this.MenuDimensionamentoNormal.Text = "Normal";
+            this.MenuDimensionamentoNormal.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
+            // 
+            // MenuDimensionamentoStretch
+            // 
+            this.MenuDimensionamentoStretch.Checked = true;
+            this.MenuDimensionamentoStretch.CheckOnClick = true;
+            this.MenuDimensionamentoStretch.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MenuDimensionamentoStretch.Name = "MenuDimensionamentoStretch";
+            this.MenuDimensionamentoStretch.Size = new System.Drawing.Size(180, 22);
+            this.MenuDimensionamentoStretch.Text = "StretchImage";
+            this.MenuDimensionamentoStretch.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
+            // 
+            // MenuDimensionamentoAuto
+            // 
+            this.MenuDimensionamentoAuto.CheckOnClick = true;
+            this.MenuDimensionamentoAuto.Name = "MenuDimensionamentoAuto";
+            this.MenuDimensionamentoAuto.Size = new System.Drawing.Size(180, 22);
+            this.MenuDimensionamentoAuto.Text = "AutoSize";
+            this.MenuDimensionamentoAuto.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
+            // 
+            // MenuDimensionamentoCenter
+            // 
+            this.MenuDimensionamentoCenter.CheckOnClick = true;
+            this.MenuDimensionamentoCenter.Name = "MenuDimensionamentoCenter";
+            this.MenuDimensionamentoCenter.Size = new System.Drawing.Size(180, 22);
+            this.MenuDimensionamentoCenter.Text = "CenterImage";
+            this.MenuDimensionamentoCenter.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
+            // 
+            // MenuDimensionamentoZoom
+            // 
+            this.MenuDimensionamentoZoom.CheckOnClick = true;
+            this.MenuDimensionamentoZoom.Name = "MenuDimensionamentoZoom";
+            this.MenuDimensionamentoZoom.Size = new System.Drawing.Size(180, 22);
+            this.MenuDimensionamentoZoom.Text = "Zoom";
+            this.MenuDimensionamentoZoom.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(232, 6);
+            // 
+            // MenuAplicar
+            // 
+            this.MenuAplicar.Enabled = false;
+            this.MenuAplicar.Name = "MenuAplicar";
+            this.MenuAplicar.Size = new System.Drawing.Size(235, 22);
+            this.MenuAplicar.Text = "Aplicar";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(786, 450);
+            this.Controls.Add(this.groupOpçõesEscalaCinza);
             this.Controls.Add(this.groupPersonalizar);
             this.Controls.Add(this.checkModificarOriginal);
             this.Controls.Add(this.checkAlterarAutomaticamente);
@@ -399,9 +537,11 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "Form1";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "iMage";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Move += new System.EventHandler(this.Form1_Move);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.picImagem)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -409,9 +549,13 @@
             this.groupPersonalizar.ResumeLayout(false);
             this.groupPersonalizar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackG)).EndInit();
+            this.groupOpçõesEscalaCinza.ResumeLayout(false);
+            this.groupOpçõesEscalaCinza.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackLuminosidade)).EndInit();
+            this.ctmPictureBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,6 +591,19 @@
         private System.Windows.Forms.Label labelG;
         private System.Windows.Forms.TrackBar trackG;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupOpçõesEscalaCinza;
+        private System.Windows.Forms.Label labelLuminosidade;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TrackBar TrackLuminosidade;
+        private System.Windows.Forms.ContextMenuStrip ctmPictureBox;
+        private System.Windows.Forms.ToolStripMenuItem MenuModoDimensionamento;
+        private System.Windows.Forms.ToolStripMenuItem MenuDimensionamentoNormal;
+        private System.Windows.Forms.ToolStripMenuItem MenuDimensionamentoStretch;
+        private System.Windows.Forms.ToolStripMenuItem MenuDimensionamentoAuto;
+        private System.Windows.Forms.ToolStripMenuItem MenuDimensionamentoCenter;
+        private System.Windows.Forms.ToolStripMenuItem MenuDimensionamentoZoom;
+        private System.Windows.Forms.ToolStripMenuItem MenuAplicar;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

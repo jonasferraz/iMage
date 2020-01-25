@@ -44,7 +44,7 @@ namespace iMage
 
         public void Salvar(string nomeArq)
         {
-            string extensaoArquivo = nomeArq.Split('.')[nomeArq.Split('.').Count()].ToLower();
+            string extensaoArquivo = nomeArq.Split('.')[nomeArq.Split('.').Count()-1].ToLower();
             if ((extensaoArquivo != "png") && (PossuiAlfa(Imagem)))
             {
                 DialogResult salvarTransparente = MessageBox.Show("Todas as transparências serão perdidas se você salvar nesse formato. Se quiser manter as transparências, salve no formato png. Deseja salvar mesmo assim?", "Canal alfa detectado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -65,7 +65,7 @@ namespace iMage
                 Imagem.Save(nomeArq, System.Drawing.Imaging.ImageFormat.Png);
         }
 
-        public Bitmap AplicarEscalaDeCinza(Bitmap img)
+        public Bitmap AplicarEscalaDeCinza(Bitmap img, int lux)
         {
             try
             {
@@ -78,7 +78,9 @@ namespace iMage
                         r = cor.R;
                         g = cor.G;
                         b = cor.B;
-                        int c = (int)(((decimal)(r) + (decimal)g + (decimal)b) / (decimal)3);
+                        int c = (int)((((decimal)(r) + (decimal)g + (decimal)b) / (decimal)3)*(decimal)lux/(decimal)100);
+                        if (c > 255)
+                            c = 255;
                         img.SetPixel(x, y, Color.FromArgb(a, c, c, c));
                     }
                 }
