@@ -25,10 +25,6 @@ namespace iMage
 
         private void linkCaminho_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            /*string[] aux = linkCaminho.Text.Split('\\');
-            string caminho = "";
-            for (int x = 0; x < aux.Count() - 1; x++)
-                caminho += aux[x] + "\\";*/
             if (linkCaminho.Text != "...")
                 Process.Start(linkCaminho.Text);
         }
@@ -97,7 +93,7 @@ namespace iMage
                     {
                         case 1:
                             {
-                                imagem = render.AplicarEscalaDeCinza(render.Imagem, TrackLuminosidade.Value);
+                                imagem = render.AplicarEscalaDeCinza(render.Imagem, TrackLuminosidade.Value, checkLinhasVerticais.Checked, trackValorMaximo.Value, trackValidacao.Value);
                                 if (imagem != null)
                                     picImagem.Image = render.Imagem = imagem;
                                 break;
@@ -184,7 +180,7 @@ namespace iMage
             else
                 groupOpçõesEscalaCinza.Visible = false;
 
-            if (checkAlterarAutomaticamente.Checked)
+            if ((checkAlterarAutomaticamente.Checked) && (comboModo.SelectedIndex != 8))
                 btnAplicar.PerformClick();
         }
 
@@ -205,49 +201,27 @@ namespace iMage
             }
         }
 
-        private void trackA_ValueChanged(object sender, EventArgs e)
-        {
-            labelA.Text = trackA.Value + "%";
-        }
+        private void trackA_ValueChanged(object sender, EventArgs e) => labelA.Text = trackA.Value + "%";
 
-        private void trackR_ValueChanged(object sender, EventArgs e)
-        {
-            labelR.Text = trackR.Value + "%";
-        }
+        private void trackR_ValueChanged(object sender, EventArgs e) => labelR.Text = trackR.Value + "%";
 
-        private void trackG_ValueChanged(object sender, EventArgs e)
-        {
-            labelG.Text = trackG.Value + "%";
-        }
+        private void trackG_ValueChanged(object sender, EventArgs e) => labelG.Text = trackG.Value + "%";
 
-        private void trackB_ValueChanged(object sender, EventArgs e)
-        {
-            labelB.Text = trackB.Value + "%";
-        }
+        private void trackB_ValueChanged(object sender, EventArgs e) => labelB.Text = trackB.Value + "%";
 
-        private void labelA_Click(object sender, EventArgs e)
-        {
-            trackA.Value = 100;
-        }
+        private void labelA_Click(object sender, EventArgs e) => trackA.Value = 100;
 
-        private void labelR_Click(object sender, EventArgs e)
-        {
-            trackR.Value = 100;
-        }
+        private void labelR_Click(object sender, EventArgs e) => trackR.Value = 100;
 
-        private void labelG_Click(object sender, EventArgs e)
-        {
-            trackG.Value = 100;
-        }
+        private void labelG_Click(object sender, EventArgs e) => trackG.Value = 100;
 
-        private void labelB_Click(object sender, EventArgs e)
-        {
-            trackB.Value = 100;
-        }
+        private void labelB_Click(object sender, EventArgs e) => trackB.Value = 100;
 
         private void TrackLuminosidade_ValueChanged(object sender, EventArgs e)
         {
             labelLuminosidade.Text = $"{TrackLuminosidade.Value}%";
+            if (checkAlterarAutomaticamente.Checked)
+                btnAplicar.PerformClick();
         }
 
         private void DesmarcarOpções (ToolStripMenuItem item, ToolStripMenuItem ex)
@@ -279,15 +253,33 @@ namespace iMage
                 picImagem.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
-        private void labelLuminosidade_Click(object sender, EventArgs e)
-        {
-            TrackLuminosidade.Value = 100;
-        }
+        private void labelLuminosidade_Click(object sender, EventArgs e) => TrackLuminosidade.Value = 100;
 
         private void Form1_Resize(object sender, EventArgs e)
         {
             this.Text = $"iMage (tamanho: ({this.Size.Width}; {this.Size.Height}))";
             timer.Start();
+        }
+
+        private void checkRetro_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkAlterarAutomaticamente.Checked)
+                btnAplicar.PerformClick();
+
+            if (checkLinhasVerticais.Checked)
+                groupLinhas.Enabled = true;
+            else
+                groupLinhas.Enabled = false;
+        }
+
+        private void trackValorMaximo_ValueChanged(object sender, EventArgs e)
+        {
+            labelValorMaximo.Text = trackValorMaximo.Value.ToString();
+        }
+
+        private void trackValidacao_ValueChanged(object sender, EventArgs e)
+        {
+            labelValidacao.Text = trackValidacao.Value.ToString();
         }
     }
 }

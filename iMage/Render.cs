@@ -65,7 +65,7 @@ namespace iMage
                 Imagem.Save(nomeArq, System.Drawing.Imaging.ImageFormat.Png);
         }
 
-        public Bitmap AplicarEscalaDeCinza(Bitmap img, int lux)
+        public Bitmap AplicarEscalaDeCinza(Bitmap img, int lux, bool retro, int max, int val)
         {
             try
             {
@@ -81,6 +81,13 @@ namespace iMage
                         int c = (int)((((decimal)(r) + (decimal)g + (decimal)b) / (decimal)3)*(decimal)lux/(decimal)100);
                         if (c > 255)
                             c = 255;
+                        if (retro)
+                        {
+                            Random random = new Random();
+                            int validacao = random.Next(max);
+                            if (validacao < val)
+                                c = 0;
+                        }
                         img.SetPixel(x, y, Color.FromArgb(a, c, c, c));
                     }
                 }

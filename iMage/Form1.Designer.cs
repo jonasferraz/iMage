@@ -30,6 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.picImagem = new System.Windows.Forms.PictureBox();
+            this.ctmPictureBox = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MenuModoDimensionamento = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuDimensionamentoNormal = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuDimensionamentoStretch = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuDimensionamentoAuto = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuDimensionamentoCenter = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuDimensionamentoZoom = new System.Windows.Forms.ToolStripMenuItem();
             this.linkCaminho = new System.Windows.Forms.LinkLabel();
             this.btnCarregar = new System.Windows.Forms.Button();
             this.labelModo = new System.Windows.Forms.Label();
@@ -38,6 +45,8 @@
             this.linkResetar = new System.Windows.Forms.LinkLabel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.MenuArquivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuAplicar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuSalvarComo = new System.Windows.Forms.ToolStripMenuItem();
             this.panelProgressoFundo = new System.Windows.Forms.Panel();
             this.panelProgressoFrente = new System.Windows.Forms.Panel();
@@ -58,19 +67,19 @@
             this.trackG = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
             this.groupOpçõesEscalaCinza = new System.Windows.Forms.GroupBox();
-            this.TrackLuminosidade = new System.Windows.Forms.TrackBar();
-            this.label5 = new System.Windows.Forms.Label();
             this.labelLuminosidade = new System.Windows.Forms.Label();
-            this.ctmPictureBox = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.MenuModoDimensionamento = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuDimensionamentoNormal = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuDimensionamentoStretch = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuDimensionamentoAuto = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuDimensionamentoCenter = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuDimensionamentoZoom = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.MenuAplicar = new System.Windows.Forms.ToolStripMenuItem();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TrackLuminosidade = new System.Windows.Forms.TrackBar();
+            this.checkLinhasVerticais = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelValidacao = new System.Windows.Forms.Label();
+            this.trackValidacao = new System.Windows.Forms.TrackBar();
+            this.label8 = new System.Windows.Forms.Label();
+            this.groupLinhas = new System.Windows.Forms.GroupBox();
+            this.trackValorMaximo = new System.Windows.Forms.TrackBar();
+            this.labelValorMaximo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picImagem)).BeginInit();
+            this.ctmPictureBox.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.panelProgressoFundo.SuspendLayout();
             this.groupPersonalizar.SuspendLayout();
@@ -80,7 +89,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackG)).BeginInit();
             this.groupOpçõesEscalaCinza.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TrackLuminosidade)).BeginInit();
-            this.ctmPictureBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackValidacao)).BeginInit();
+            this.groupLinhas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackValorMaximo)).BeginInit();
             this.SuspendLayout();
             // 
             // picImagem
@@ -98,6 +109,67 @@
             this.picImagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picImagem.TabIndex = 0;
             this.picImagem.TabStop = false;
+            // 
+            // ctmPictureBox
+            // 
+            this.ctmPictureBox.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuModoDimensionamento});
+            this.ctmPictureBox.Name = "ctmPictureBox";
+            this.ctmPictureBox.Size = new System.Drawing.Size(223, 26);
+            // 
+            // MenuModoDimensionamento
+            // 
+            this.MenuModoDimensionamento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuDimensionamentoNormal,
+            this.MenuDimensionamentoStretch,
+            this.MenuDimensionamentoAuto,
+            this.MenuDimensionamentoCenter,
+            this.MenuDimensionamentoZoom});
+            this.MenuModoDimensionamento.Name = "MenuModoDimensionamento";
+            this.MenuModoDimensionamento.Size = new System.Drawing.Size(222, 22);
+            this.MenuModoDimensionamento.Text = "Modo de dimensionamento";
+            // 
+            // MenuDimensionamentoNormal
+            // 
+            this.MenuDimensionamentoNormal.CheckOnClick = true;
+            this.MenuDimensionamentoNormal.Name = "MenuDimensionamentoNormal";
+            this.MenuDimensionamentoNormal.Size = new System.Drawing.Size(144, 22);
+            this.MenuDimensionamentoNormal.Text = "Normal";
+            this.MenuDimensionamentoNormal.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
+            // 
+            // MenuDimensionamentoStretch
+            // 
+            this.MenuDimensionamentoStretch.Checked = true;
+            this.MenuDimensionamentoStretch.CheckOnClick = true;
+            this.MenuDimensionamentoStretch.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MenuDimensionamentoStretch.Name = "MenuDimensionamentoStretch";
+            this.MenuDimensionamentoStretch.Size = new System.Drawing.Size(144, 22);
+            this.MenuDimensionamentoStretch.Text = "StretchImage";
+            this.MenuDimensionamentoStretch.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
+            // 
+            // MenuDimensionamentoAuto
+            // 
+            this.MenuDimensionamentoAuto.CheckOnClick = true;
+            this.MenuDimensionamentoAuto.Name = "MenuDimensionamentoAuto";
+            this.MenuDimensionamentoAuto.Size = new System.Drawing.Size(144, 22);
+            this.MenuDimensionamentoAuto.Text = "AutoSize";
+            this.MenuDimensionamentoAuto.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
+            // 
+            // MenuDimensionamentoCenter
+            // 
+            this.MenuDimensionamentoCenter.CheckOnClick = true;
+            this.MenuDimensionamentoCenter.Name = "MenuDimensionamentoCenter";
+            this.MenuDimensionamentoCenter.Size = new System.Drawing.Size(144, 22);
+            this.MenuDimensionamentoCenter.Text = "CenterImage";
+            this.MenuDimensionamentoCenter.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
+            // 
+            // MenuDimensionamentoZoom
+            // 
+            this.MenuDimensionamentoZoom.CheckOnClick = true;
+            this.MenuDimensionamentoZoom.Name = "MenuDimensionamentoZoom";
+            this.MenuDimensionamentoZoom.Size = new System.Drawing.Size(144, 22);
+            this.MenuDimensionamentoZoom.Text = "Zoom";
+            this.MenuDimensionamentoZoom.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
             // 
             // linkCaminho
             // 
@@ -196,6 +268,18 @@
             this.MenuArquivo.Name = "MenuArquivo";
             this.MenuArquivo.Size = new System.Drawing.Size(61, 20);
             this.MenuArquivo.Text = "Arquivo";
+            // 
+            // MenuAplicar
+            // 
+            this.MenuAplicar.Enabled = false;
+            this.MenuAplicar.Name = "MenuAplicar";
+            this.MenuAplicar.Size = new System.Drawing.Size(235, 22);
+            this.MenuAplicar.Text = "Aplicar";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(232, 6);
             // 
             // MenuSalvarComo
             // 
@@ -401,16 +485,37 @@
             // groupOpçõesEscalaCinza
             // 
             this.groupOpçõesEscalaCinza.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupOpçõesEscalaCinza.Controls.Add(this.checkLinhasVerticais);
+            this.groupOpçõesEscalaCinza.Controls.Add(this.groupLinhas);
             this.groupOpçõesEscalaCinza.Controls.Add(this.labelLuminosidade);
             this.groupOpçõesEscalaCinza.Controls.Add(this.label5);
             this.groupOpçõesEscalaCinza.Controls.Add(this.TrackLuminosidade);
             this.groupOpçõesEscalaCinza.Location = new System.Drawing.Point(359, 196);
             this.groupOpçõesEscalaCinza.Name = "groupOpçõesEscalaCinza";
-            this.groupOpçõesEscalaCinza.Size = new System.Drawing.Size(415, 100);
+            this.groupOpçõesEscalaCinza.Size = new System.Drawing.Size(415, 242);
             this.groupOpçõesEscalaCinza.TabIndex = 37;
             this.groupOpçõesEscalaCinza.TabStop = false;
             this.groupOpçõesEscalaCinza.Text = "Opções da escala de cinza";
             this.groupOpçõesEscalaCinza.Visible = false;
+            // 
+            // labelLuminosidade
+            // 
+            this.labelLuminosidade.AutoSize = true;
+            this.labelLuminosidade.Location = new System.Drawing.Point(235, 56);
+            this.labelLuminosidade.Name = "labelLuminosidade";
+            this.labelLuminosidade.Size = new System.Drawing.Size(33, 13);
+            this.labelLuminosidade.TabIndex = 2;
+            this.labelLuminosidade.Text = "100%";
+            this.labelLuminosidade.Click += new System.EventHandler(this.labelLuminosidade_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Luminosidade:";
             // 
             // TrackLuminosidade
             // 
@@ -423,97 +528,90 @@
             this.TrackLuminosidade.Value = 100;
             this.TrackLuminosidade.ValueChanged += new System.EventHandler(this.TrackLuminosidade_ValueChanged);
             // 
-            // label5
+            // checkLinhasVerticais
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Luminosidade:";
+            this.checkLinhasVerticais.AutoSize = true;
+            this.checkLinhasVerticais.Location = new System.Drawing.Point(12, 63);
+            this.checkLinhasVerticais.Name = "checkLinhasVerticais";
+            this.checkLinhasVerticais.Size = new System.Drawing.Size(119, 17);
+            this.checkLinhasVerticais.TabIndex = 3;
+            this.checkLinhasVerticais.Text = "Criar linhas verticais";
+            this.checkLinhasVerticais.UseVisualStyleBackColor = true;
+            this.checkLinhasVerticais.CheckedChanged += new System.EventHandler(this.checkRetro_CheckedChanged);
             // 
-            // labelLuminosidade
+            // label6
             // 
-            this.labelLuminosidade.AutoSize = true;
-            this.labelLuminosidade.Location = new System.Drawing.Point(235, 56);
-            this.labelLuminosidade.Name = "labelLuminosidade";
-            this.labelLuminosidade.Size = new System.Drawing.Size(33, 13);
-            this.labelLuminosidade.TabIndex = 2;
-            this.labelLuminosidade.Text = "100%";
-            this.labelLuminosidade.Click += new System.EventHandler(this.labelLuminosidade_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Valor máximo:";
             // 
-            // ctmPictureBox
+            // labelValidacao
             // 
-            this.ctmPictureBox.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuModoDimensionamento});
-            this.ctmPictureBox.Name = "ctmPictureBox";
-            this.ctmPictureBox.Size = new System.Drawing.Size(223, 26);
+            this.labelValidacao.AutoSize = true;
+            this.labelValidacao.Location = new System.Drawing.Point(243, 81);
+            this.labelValidacao.Name = "labelValidacao";
+            this.labelValidacao.Size = new System.Drawing.Size(25, 13);
+            this.labelValidacao.TabIndex = 9;
+            this.labelValidacao.Text = "100";
             // 
-            // MenuModoDimensionamento
+            // trackValidacao
             // 
-            this.MenuModoDimensionamento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuDimensionamentoNormal,
-            this.MenuDimensionamentoStretch,
-            this.MenuDimensionamentoAuto,
-            this.MenuDimensionamentoCenter,
-            this.MenuDimensionamentoZoom});
-            this.MenuModoDimensionamento.Name = "MenuModoDimensionamento";
-            this.MenuModoDimensionamento.Size = new System.Drawing.Size(222, 22);
-            this.MenuModoDimensionamento.Text = "Modo de dimensionamento";
+            this.trackValidacao.Location = new System.Drawing.Point(98, 61);
+            this.trackValidacao.Maximum = 10000;
+            this.trackValidacao.Name = "trackValidacao";
+            this.trackValidacao.Size = new System.Drawing.Size(296, 45);
+            this.trackValidacao.TabIndex = 8;
+            this.trackValidacao.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackValidacao.Value = 100;
+            this.trackValidacao.ValueChanged += new System.EventHandler(this.trackValidacao_ValueChanged);
             // 
-            // MenuDimensionamentoNormal
+            // label8
             // 
-            this.MenuDimensionamentoNormal.CheckOnClick = true;
-            this.MenuDimensionamentoNormal.Name = "MenuDimensionamentoNormal";
-            this.MenuDimensionamentoNormal.Size = new System.Drawing.Size(180, 22);
-            this.MenuDimensionamentoNormal.Text = "Normal";
-            this.MenuDimensionamentoNormal.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 68);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Validação:";
             // 
-            // MenuDimensionamentoStretch
+            // groupLinhas
             // 
-            this.MenuDimensionamentoStretch.Checked = true;
-            this.MenuDimensionamentoStretch.CheckOnClick = true;
-            this.MenuDimensionamentoStretch.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.MenuDimensionamentoStretch.Name = "MenuDimensionamentoStretch";
-            this.MenuDimensionamentoStretch.Size = new System.Drawing.Size(180, 22);
-            this.MenuDimensionamentoStretch.Text = "StretchImage";
-            this.MenuDimensionamentoStretch.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
+            this.groupLinhas.Controls.Add(this.labelValorMaximo);
+            this.groupLinhas.Controls.Add(this.labelValidacao);
+            this.groupLinhas.Controls.Add(this.label6);
+            this.groupLinhas.Controls.Add(this.trackValidacao);
+            this.groupLinhas.Controls.Add(this.trackValorMaximo);
+            this.groupLinhas.Controls.Add(this.label8);
+            this.groupLinhas.Enabled = false;
+            this.groupLinhas.Location = new System.Drawing.Point(6, 86);
+            this.groupLinhas.Name = "groupLinhas";
+            this.groupLinhas.Size = new System.Drawing.Size(403, 111);
+            this.groupLinhas.TabIndex = 10;
+            this.groupLinhas.TabStop = false;
+            this.groupLinhas.Text = "Opções de linhas verticais";
             // 
-            // MenuDimensionamentoAuto
+            // trackValorMaximo
             // 
-            this.MenuDimensionamentoAuto.CheckOnClick = true;
-            this.MenuDimensionamentoAuto.Name = "MenuDimensionamentoAuto";
-            this.MenuDimensionamentoAuto.Size = new System.Drawing.Size(180, 22);
-            this.MenuDimensionamentoAuto.Text = "AutoSize";
-            this.MenuDimensionamentoAuto.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
+            this.trackValorMaximo.Location = new System.Drawing.Point(98, 19);
+            this.trackValorMaximo.Maximum = 10000;
+            this.trackValorMaximo.Name = "trackValorMaximo";
+            this.trackValorMaximo.Size = new System.Drawing.Size(296, 45);
+            this.trackValorMaximo.TabIndex = 5;
+            this.trackValorMaximo.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackValorMaximo.Value = 256;
+            this.trackValorMaximo.ValueChanged += new System.EventHandler(this.trackValorMaximo_ValueChanged);
             // 
-            // MenuDimensionamentoCenter
+            // labelValorMaximo
             // 
-            this.MenuDimensionamentoCenter.CheckOnClick = true;
-            this.MenuDimensionamentoCenter.Name = "MenuDimensionamentoCenter";
-            this.MenuDimensionamentoCenter.Size = new System.Drawing.Size(180, 22);
-            this.MenuDimensionamentoCenter.Text = "CenterImage";
-            this.MenuDimensionamentoCenter.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
-            // 
-            // MenuDimensionamentoZoom
-            // 
-            this.MenuDimensionamentoZoom.CheckOnClick = true;
-            this.MenuDimensionamentoZoom.Name = "MenuDimensionamentoZoom";
-            this.MenuDimensionamentoZoom.Size = new System.Drawing.Size(180, 22);
-            this.MenuDimensionamentoZoom.Text = "Zoom";
-            this.MenuDimensionamentoZoom.Click += new System.EventHandler(this.MenusDimensionamento_CheckedChanged);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(232, 6);
-            // 
-            // MenuAplicar
-            // 
-            this.MenuAplicar.Enabled = false;
-            this.MenuAplicar.Name = "MenuAplicar";
-            this.MenuAplicar.Size = new System.Drawing.Size(235, 22);
-            this.MenuAplicar.Text = "Aplicar";
+            this.labelValorMaximo.AutoSize = true;
+            this.labelValorMaximo.Location = new System.Drawing.Point(243, 42);
+            this.labelValorMaximo.Name = "labelValorMaximo";
+            this.labelValorMaximo.Size = new System.Drawing.Size(25, 13);
+            this.labelValorMaximo.TabIndex = 10;
+            this.labelValorMaximo.Text = "256";
             // 
             // Form1
             // 
@@ -543,6 +641,7 @@
             this.Move += new System.EventHandler(this.Form1_Move);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.picImagem)).EndInit();
+            this.ctmPictureBox.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.panelProgressoFundo.ResumeLayout(false);
@@ -555,7 +654,10 @@
             this.groupOpçõesEscalaCinza.ResumeLayout(false);
             this.groupOpçõesEscalaCinza.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TrackLuminosidade)).EndInit();
-            this.ctmPictureBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trackValidacao)).EndInit();
+            this.groupLinhas.ResumeLayout(false);
+            this.groupLinhas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackValorMaximo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -604,6 +706,14 @@
         private System.Windows.Forms.ToolStripMenuItem MenuDimensionamentoZoom;
         private System.Windows.Forms.ToolStripMenuItem MenuAplicar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.CheckBox checkLinhasVerticais;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelValidacao;
+        private System.Windows.Forms.TrackBar trackValidacao;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox groupLinhas;
+        private System.Windows.Forms.Label labelValorMaximo;
+        private System.Windows.Forms.TrackBar trackValorMaximo;
     }
 }
 
