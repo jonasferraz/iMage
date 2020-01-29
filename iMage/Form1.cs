@@ -23,6 +23,8 @@ namespace iMage
 
         int tempo_mover = 0;
 
+        bool modificado = false;
+
         private void linkCaminho_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (linkCaminho.Text != "...")
@@ -68,7 +70,10 @@ namespace iMage
                 using (var sfd = new SaveFileDialog { AddExtension = true, OverwritePrompt = true, CheckPathExists = true, Filter = "Portable Network Graphics|*.png|Arquivo JPEG|*.jpg; *.jpeg|Arquivo bitmap|*.bmp|Arquivo GIF|*.gif|Todos os arquivos|*.*", Title = "Selecionar arquivo", SupportMultiDottedExtensions = true, FilterIndex = 2 })
                 {
                     if (sfd.ShowDialog() == DialogResult.OK)
+                    {
                         render.Salvar(sfd.FileName);
+                        modificado = false;
+                    }
                 }
             }
         }
@@ -150,7 +155,10 @@ namespace iMage
                     }
                 }
                 if (picImagem.Image != null)
+                {
                     MenuSalvarComo.Enabled = true;
+                    modificado = true;
+                }
             }
             catch (Exception ex)
             {
@@ -280,6 +288,42 @@ namespace iMage
         private void trackValidacao_ValueChanged(object sender, EventArgs e)
         {
             labelValidacao.Text = trackValidacao.Value.ToString();
+        }
+
+        private void MenuAbrir_Click(object sender, EventArgs e) => btnCarregar.PerformClick();
+
+        private void MenuSair_Click(object sender, EventArgs e)
+        {
+            if (modificado)
+            {
+                DialogResult sair = MessageBox.Show("O arquivo ainda não foi salvo. Deseja salvá-lo agora?", "Saindo", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (sair == DialogResult.Yes)
+                {
+                    MenuSalvarComo.PerformClick();
+                    Application.ExitThread();
+                }
+                else if (sair == DialogResult.No)
+                    Application.ExitThread();
+            }
+            else
+                Application.ExitThread();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            MenuSair.PerformClick();
+        }
+
+        private void MenuAplicar_Click(object sender, EventArgs e)
+        {
+            btnAplicar.PerformClick();
+        }
+
+        private void MenuSobre_Click(object sender, EventArgs e)
+        {
+            using (Sobre sobre = new Sobre())
+                sobre.ShowDialog();
         }
     }
 }

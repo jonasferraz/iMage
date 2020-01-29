@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associadas a um assembly.
 [assembly: AssemblyTitle("iMage")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Este produto permite inserir filtros em arquivos de imagem, por meio da alteração dos valores ARGB.\n\nO iMage é um software gratuito e open-source, sendo livre para distribuição.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Jonas de Lima Ferraz")]
 [assembly: AssemblyProduct("iMage")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Criado em 2020 por Jonas de Lima Ferraz.")]
+[assembly: AssemblyTrademark("Jonas de Lima Ferraz")]
 [assembly: AssemblyCulture("")]
 
 // Definir ComVisible como false torna os tipos neste assembly invisíveis

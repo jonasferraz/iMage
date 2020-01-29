@@ -47,6 +47,8 @@
             this.MenuArquivo = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuAplicar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.MenuAbrir = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuSalvarComo = new System.Windows.Forms.ToolStripMenuItem();
             this.panelProgressoFundo = new System.Windows.Forms.Panel();
             this.panelProgressoFrente = new System.Windows.Forms.Panel();
@@ -67,17 +69,21 @@
             this.trackG = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
             this.groupOpçõesEscalaCinza = new System.Windows.Forms.GroupBox();
+            this.checkLinhasVerticais = new System.Windows.Forms.CheckBox();
+            this.groupLinhas = new System.Windows.Forms.GroupBox();
+            this.labelValorMaximo = new System.Windows.Forms.Label();
+            this.labelValidacao = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.trackValidacao = new System.Windows.Forms.TrackBar();
+            this.trackValorMaximo = new System.Windows.Forms.TrackBar();
+            this.label8 = new System.Windows.Forms.Label();
             this.labelLuminosidade = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TrackLuminosidade = new System.Windows.Forms.TrackBar();
-            this.checkLinhasVerticais = new System.Windows.Forms.CheckBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.labelValidacao = new System.Windows.Forms.Label();
-            this.trackValidacao = new System.Windows.Forms.TrackBar();
-            this.label8 = new System.Windows.Forms.Label();
-            this.groupLinhas = new System.Windows.Forms.GroupBox();
-            this.trackValorMaximo = new System.Windows.Forms.TrackBar();
-            this.labelValorMaximo = new System.Windows.Forms.Label();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuSobre = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picImagem)).BeginInit();
             this.ctmPictureBox.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -88,10 +94,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackG)).BeginInit();
             this.groupOpçõesEscalaCinza.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TrackLuminosidade)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackValidacao)).BeginInit();
             this.groupLinhas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackValidacao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackValorMaximo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackLuminosidade)).BeginInit();
             this.SuspendLayout();
             // 
             // picImagem
@@ -252,7 +258,8 @@
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuArquivo});
+            this.MenuArquivo,
+            this.ajudaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(786, 24);
@@ -262,9 +269,13 @@
             // MenuArquivo
             // 
             this.MenuArquivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuAplicar,
+            this.MenuAbrir,
+            this.toolStripMenuItem1,
+            this.MenuSalvarComo,
             this.toolStripSeparator1,
-            this.MenuSalvarComo});
+            this.MenuAplicar,
+            this.toolStripSeparator2,
+            this.MenuSair});
             this.MenuArquivo.Name = "MenuArquivo";
             this.MenuArquivo.Size = new System.Drawing.Size(61, 20);
             this.MenuArquivo.Text = "Arquivo";
@@ -273,13 +284,28 @@
             // 
             this.MenuAplicar.Enabled = false;
             this.MenuAplicar.Name = "MenuAplicar";
+            this.MenuAplicar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.MenuAplicar.Size = new System.Drawing.Size(235, 22);
             this.MenuAplicar.Text = "Aplicar";
+            this.MenuAplicar.Click += new System.EventHandler(this.MenuAplicar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(232, 6);
+            // 
+            // MenuAbrir
+            // 
+            this.MenuAbrir.Name = "MenuAbrir";
+            this.MenuAbrir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.MenuAbrir.Size = new System.Drawing.Size(235, 22);
+            this.MenuAbrir.Text = "Abrir...";
+            this.MenuAbrir.Click += new System.EventHandler(this.MenuAbrir_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(232, 6);
             // 
             // MenuSalvarComo
             // 
@@ -365,7 +391,7 @@
             // trackB
             // 
             this.trackB.Location = new System.Drawing.Point(36, 184);
-            this.trackB.Maximum = 100;
+            this.trackB.Maximum = 200;
             this.trackB.Name = "trackB";
             this.trackB.Size = new System.Drawing.Size(104, 45);
             this.trackB.TabIndex = 34;
@@ -376,7 +402,7 @@
             // trackA
             // 
             this.trackA.Location = new System.Drawing.Point(36, 28);
-            this.trackA.Maximum = 100;
+            this.trackA.Maximum = 200;
             this.trackA.Name = "trackA";
             this.trackA.Size = new System.Drawing.Size(104, 45);
             this.trackA.TabIndex = 25;
@@ -416,7 +442,7 @@
             // trackR
             // 
             this.trackR.Location = new System.Drawing.Point(35, 79);
-            this.trackR.Maximum = 100;
+            this.trackR.Maximum = 200;
             this.trackR.Name = "trackR";
             this.trackR.Size = new System.Drawing.Size(104, 45);
             this.trackR.TabIndex = 28;
@@ -465,7 +491,7 @@
             // trackG
             // 
             this.trackG.Location = new System.Drawing.Point(35, 130);
-            this.trackG.Maximum = 100;
+            this.trackG.Maximum = 200;
             this.trackG.Name = "trackG";
             this.trackG.Size = new System.Drawing.Size(104, 45);
             this.trackG.TabIndex = 31;
@@ -498,6 +524,91 @@
             this.groupOpçõesEscalaCinza.Text = "Opções da escala de cinza";
             this.groupOpçõesEscalaCinza.Visible = false;
             // 
+            // checkLinhasVerticais
+            // 
+            this.checkLinhasVerticais.AutoSize = true;
+            this.checkLinhasVerticais.Location = new System.Drawing.Point(12, 63);
+            this.checkLinhasVerticais.Name = "checkLinhasVerticais";
+            this.checkLinhasVerticais.Size = new System.Drawing.Size(119, 17);
+            this.checkLinhasVerticais.TabIndex = 3;
+            this.checkLinhasVerticais.Text = "Criar linhas verticais";
+            this.checkLinhasVerticais.UseVisualStyleBackColor = true;
+            this.checkLinhasVerticais.CheckedChanged += new System.EventHandler(this.checkRetro_CheckedChanged);
+            // 
+            // groupLinhas
+            // 
+            this.groupLinhas.Controls.Add(this.labelValorMaximo);
+            this.groupLinhas.Controls.Add(this.labelValidacao);
+            this.groupLinhas.Controls.Add(this.label6);
+            this.groupLinhas.Controls.Add(this.trackValidacao);
+            this.groupLinhas.Controls.Add(this.trackValorMaximo);
+            this.groupLinhas.Controls.Add(this.label8);
+            this.groupLinhas.Enabled = false;
+            this.groupLinhas.Location = new System.Drawing.Point(6, 86);
+            this.groupLinhas.Name = "groupLinhas";
+            this.groupLinhas.Size = new System.Drawing.Size(403, 111);
+            this.groupLinhas.TabIndex = 10;
+            this.groupLinhas.TabStop = false;
+            this.groupLinhas.Text = "Opções de linhas verticais";
+            // 
+            // labelValorMaximo
+            // 
+            this.labelValorMaximo.AutoSize = true;
+            this.labelValorMaximo.Location = new System.Drawing.Point(243, 42);
+            this.labelValorMaximo.Name = "labelValorMaximo";
+            this.labelValorMaximo.Size = new System.Drawing.Size(25, 13);
+            this.labelValorMaximo.TabIndex = 10;
+            this.labelValorMaximo.Text = "256";
+            // 
+            // labelValidacao
+            // 
+            this.labelValidacao.AutoSize = true;
+            this.labelValidacao.Location = new System.Drawing.Point(243, 81);
+            this.labelValidacao.Name = "labelValidacao";
+            this.labelValidacao.Size = new System.Drawing.Size(25, 13);
+            this.labelValidacao.TabIndex = 9;
+            this.labelValidacao.Text = "100";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Valor máximo:";
+            // 
+            // trackValidacao
+            // 
+            this.trackValidacao.Location = new System.Drawing.Point(98, 61);
+            this.trackValidacao.Maximum = 10000;
+            this.trackValidacao.Name = "trackValidacao";
+            this.trackValidacao.Size = new System.Drawing.Size(296, 45);
+            this.trackValidacao.TabIndex = 8;
+            this.trackValidacao.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackValidacao.Value = 100;
+            this.trackValidacao.ValueChanged += new System.EventHandler(this.trackValidacao_ValueChanged);
+            // 
+            // trackValorMaximo
+            // 
+            this.trackValorMaximo.Location = new System.Drawing.Point(98, 19);
+            this.trackValorMaximo.Maximum = 10000;
+            this.trackValorMaximo.Name = "trackValorMaximo";
+            this.trackValorMaximo.Size = new System.Drawing.Size(296, 45);
+            this.trackValorMaximo.TabIndex = 5;
+            this.trackValorMaximo.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackValorMaximo.Value = 256;
+            this.trackValorMaximo.ValueChanged += new System.EventHandler(this.trackValorMaximo_ValueChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 68);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Validação:";
+            // 
             // labelLuminosidade
             // 
             this.labelLuminosidade.AutoSize = true;
@@ -528,90 +639,34 @@
             this.TrackLuminosidade.Value = 100;
             this.TrackLuminosidade.ValueChanged += new System.EventHandler(this.TrackLuminosidade_ValueChanged);
             // 
-            // checkLinhasVerticais
+            // toolStripSeparator2
             // 
-            this.checkLinhasVerticais.AutoSize = true;
-            this.checkLinhasVerticais.Location = new System.Drawing.Point(12, 63);
-            this.checkLinhasVerticais.Name = "checkLinhasVerticais";
-            this.checkLinhasVerticais.Size = new System.Drawing.Size(119, 17);
-            this.checkLinhasVerticais.TabIndex = 3;
-            this.checkLinhasVerticais.Text = "Criar linhas verticais";
-            this.checkLinhasVerticais.UseVisualStyleBackColor = true;
-            this.checkLinhasVerticais.CheckedChanged += new System.EventHandler(this.checkRetro_CheckedChanged);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(232, 6);
             // 
-            // label6
+            // MenuSair
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Valor máximo:";
+            this.MenuSair.Name = "MenuSair";
+            this.MenuSair.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.MenuSair.Size = new System.Drawing.Size(235, 22);
+            this.MenuSair.Text = "Sair";
+            this.MenuSair.Click += new System.EventHandler(this.MenuSair_Click);
             // 
-            // labelValidacao
+            // ajudaToolStripMenuItem
             // 
-            this.labelValidacao.AutoSize = true;
-            this.labelValidacao.Location = new System.Drawing.Point(243, 81);
-            this.labelValidacao.Name = "labelValidacao";
-            this.labelValidacao.Size = new System.Drawing.Size(25, 13);
-            this.labelValidacao.TabIndex = 9;
-            this.labelValidacao.Text = "100";
+            this.ajudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuSobre});
+            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.ajudaToolStripMenuItem.Text = "Ajuda";
             // 
-            // trackValidacao
+            // MenuSobre
             // 
-            this.trackValidacao.Location = new System.Drawing.Point(98, 61);
-            this.trackValidacao.Maximum = 10000;
-            this.trackValidacao.Name = "trackValidacao";
-            this.trackValidacao.Size = new System.Drawing.Size(296, 45);
-            this.trackValidacao.TabIndex = 8;
-            this.trackValidacao.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackValidacao.Value = 100;
-            this.trackValidacao.ValueChanged += new System.EventHandler(this.trackValidacao_ValueChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 68);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Validação:";
-            // 
-            // groupLinhas
-            // 
-            this.groupLinhas.Controls.Add(this.labelValorMaximo);
-            this.groupLinhas.Controls.Add(this.labelValidacao);
-            this.groupLinhas.Controls.Add(this.label6);
-            this.groupLinhas.Controls.Add(this.trackValidacao);
-            this.groupLinhas.Controls.Add(this.trackValorMaximo);
-            this.groupLinhas.Controls.Add(this.label8);
-            this.groupLinhas.Enabled = false;
-            this.groupLinhas.Location = new System.Drawing.Point(6, 86);
-            this.groupLinhas.Name = "groupLinhas";
-            this.groupLinhas.Size = new System.Drawing.Size(403, 111);
-            this.groupLinhas.TabIndex = 10;
-            this.groupLinhas.TabStop = false;
-            this.groupLinhas.Text = "Opções de linhas verticais";
-            // 
-            // trackValorMaximo
-            // 
-            this.trackValorMaximo.Location = new System.Drawing.Point(98, 19);
-            this.trackValorMaximo.Maximum = 10000;
-            this.trackValorMaximo.Name = "trackValorMaximo";
-            this.trackValorMaximo.Size = new System.Drawing.Size(296, 45);
-            this.trackValorMaximo.TabIndex = 5;
-            this.trackValorMaximo.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackValorMaximo.Value = 256;
-            this.trackValorMaximo.ValueChanged += new System.EventHandler(this.trackValorMaximo_ValueChanged);
-            // 
-            // labelValorMaximo
-            // 
-            this.labelValorMaximo.AutoSize = true;
-            this.labelValorMaximo.Location = new System.Drawing.Point(243, 42);
-            this.labelValorMaximo.Name = "labelValorMaximo";
-            this.labelValorMaximo.Size = new System.Drawing.Size(25, 13);
-            this.labelValorMaximo.TabIndex = 10;
-            this.labelValorMaximo.Text = "256";
+            this.MenuSobre.Name = "MenuSobre";
+            this.MenuSobre.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.MenuSobre.Size = new System.Drawing.Size(201, 22);
+            this.MenuSobre.Text = "Sobre este aplicativo";
+            this.MenuSobre.Click += new System.EventHandler(this.MenuSobre_Click);
             // 
             // Form1
             // 
@@ -637,6 +692,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "iMage";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Move += new System.EventHandler(this.Form1_Move);
             this.Resize += new System.EventHandler(this.Form1_Resize);
@@ -653,11 +709,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackG)).EndInit();
             this.groupOpçõesEscalaCinza.ResumeLayout(false);
             this.groupOpçõesEscalaCinza.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TrackLuminosidade)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackValidacao)).EndInit();
             this.groupLinhas.ResumeLayout(false);
             this.groupLinhas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackValidacao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackValorMaximo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackLuminosidade)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -714,6 +770,12 @@
         private System.Windows.Forms.GroupBox groupLinhas;
         private System.Windows.Forms.Label labelValorMaximo;
         private System.Windows.Forms.TrackBar trackValorMaximo;
+        private System.Windows.Forms.ToolStripMenuItem MenuAbrir;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem MenuSair;
+        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuSobre;
     }
 }
 

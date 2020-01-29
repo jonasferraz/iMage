@@ -7,3 +7,4 @@ E:\2\Git\iMage\iMage\obj\Debug\iMage.Properties.Resources.resources
 E:\2\Git\iMage\iMage\obj\Debug\iMage.csproj.GenerateResource.cache
 E:\2\Git\iMage\iMage\obj\Debug\iMage.exe
 E:\2\Git\iMage\iMage\obj\Debug\iMage.pdb
+E:\2\Git\iMage\iMage\obj\Debug\iMage.Sobre.resources

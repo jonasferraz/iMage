@@ -258,6 +258,14 @@ namespace iMage
                         r = (int)((decimal)r * (decimal)vr / (decimal)100);
                         g = (int)((decimal)g * (decimal)vg / (decimal)100);
                         b = (int)((decimal)b * (decimal)vb / (decimal)100);
+                        if (a > 255) 
+                            a = 255;
+                        if (r > 255) 
+                            r = 255;
+                        if (g > 255) 
+                            g = 255;
+                        if (b > 255) 
+                            b = 255;
                         img.SetPixel(x, y, Color.FromArgb(a, r, g, b));
                     }
                 }
