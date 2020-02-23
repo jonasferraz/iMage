@@ -94,60 +94,69 @@ namespace iMage
                     if (checkModificarOriginal.Checked)
                         render.Imagem = (Bitmap)Image.FromFile(linkCaminho.Text);
                     Bitmap imagem;
+                    panelProgressoFundo.Visible = true;
+                    panelProgressoFrente.Visible = true;
                     switch (comboModo.SelectedIndex)
                     {
                         case 1:
                             {
-                                imagem = render.AplicarEscalaDeCinza(render.Imagem, TrackLuminosidade.Value, checkLinhasVerticais.Checked, trackValorMaximo.Value, trackValidacao.Value);
+                                imagem = render.AplicarEscalaDeCinza(render.Imagem, TrackLuminosidade.Value, checkLinhasVerticais.Checked, trackValorMaximo.Value, trackValidacao.Value, panelProgressoFrente, panelProgressoFundo.Width);
                                 if (imagem != null)
                                     picImagem.Image = render.Imagem = imagem;
                                 break;
                             }
                         case 2:
                             {
-                                imagem = render.AplicarVermelho(render.Imagem);
+                                imagem = render.AplicarVermelho(render.Imagem, panelProgressoFrente, panelProgressoFundo.Width);
                                 if (imagem != null)
                                     picImagem.Image = render.Imagem = imagem;
                                 break;
                             }
                         case 3:
                             {
-                                imagem = render.AplicarVerde(render.Imagem);
+                                imagem = render.AplicarVerde(render.Imagem, panelProgressoFrente, panelProgressoFundo.Width);
                                 if (imagem != null)
                                     picImagem.Image = render.Imagem = imagem;
                                 break;
                             }
                         case 4:
                             {
-                                imagem = render.AplicarAzul(render.Imagem);
+                                imagem = render.AplicarAzul(render.Imagem, panelProgressoFrente, panelProgressoFundo.Width);
                                 if (imagem != null)
                                     picImagem.Image = render.Imagem = imagem;
                                 break;
                             }
                         case 5:
                             {
-                                imagem = render.AplicarAmarelo(render.Imagem);
+                                imagem = render.AplicarAmarelo(render.Imagem, panelProgressoFrente, panelProgressoFundo.Width);
                                 if (imagem != null)
                                     picImagem.Image = render.Imagem = imagem;
                                 break;
                             }
                         case 6:
                             {
-                                imagem = render.AplicarRosa(render.Imagem);
+                                imagem = render.AplicarRosa(render.Imagem, panelProgressoFrente, panelProgressoFundo.Width);
                                 if (imagem != null)
                                     picImagem.Image = render.Imagem = imagem;
                                 break;
                             }
                         case 7:
                             {
-                                imagem = render.AplicarVerdeAzul(render.Imagem);
+                                imagem = render.AplicarVerdeAzul(render.Imagem, panelProgressoFrente, panelProgressoFundo.Width);
                                 if (imagem != null)
                                     picImagem.Image = render.Imagem = imagem;
                                 break;
                             }
                         case 8:
                             {
-                                imagem = render.AplicarPersonalizado(render.Imagem, trackA.Value, trackR.Value, trackG.Value, trackB.Value);
+                                imagem = render.InverterCores(render.Imagem, panelProgressoFrente, panelProgressoFundo.Width);
+                                if (imagem != null)
+                                    picImagem.Image = render.Imagem = imagem;
+                                break;
+                            }
+                        case 9:
+                            {
+                                imagem = render.AplicarPersonalizado(render.Imagem, trackA.Value, trackR.Value, trackG.Value, trackB.Value, panelProgressoFrente, panelProgressoFundo.Width);
                                 if (imagem != null)
                                     picImagem.Image = render.Imagem = imagem;
                                 break;
@@ -168,6 +177,8 @@ namespace iMage
             {
                 this.Cursor = Cursors.Default;
                 this.Enabled = true;
+                panelProgressoFrente.Visible = false;
+                panelProgressoFundo.Visible = false;
             }
         }
 
@@ -178,7 +189,7 @@ namespace iMage
 
         private void comboModo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboModo.SelectedIndex == 8)
+            if (comboModo.SelectedIndex == 9)
                 groupPersonalizar.Visible = true;
             else
                 groupPersonalizar.Visible = false;
@@ -188,7 +199,7 @@ namespace iMage
             else
                 groupOpçõesEscalaCinza.Visible = false;
 
-            if ((checkAlterarAutomaticamente.Checked) && (comboModo.SelectedIndex != 8))
+            if ((checkAlterarAutomaticamente.Checked) && (comboModo.SelectedIndex != 9))
                 btnAplicar.PerformClick();
         }
 

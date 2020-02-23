@@ -41,7 +41,7 @@ namespace iMage
             
             return false;
         }
-
+        
         public void Salvar(string nomeArq)
         {
             string extensaoArquivo = nomeArq.Split('.')[nomeArq.Split('.').Count()-1].ToLower();
@@ -65,10 +65,11 @@ namespace iMage
                 Imagem.Save(nomeArq, System.Drawing.Imaging.ImageFormat.Png);
         }
 
-        public Bitmap AplicarEscalaDeCinza(Bitmap img, int lux, bool retro, int max, int val)
+        public Bitmap AplicarEscalaDeCinza(Bitmap img, int lux, bool retro, int max, int val, Panel barraProgresso, int tamanhoMáximoBarraProgresso)
         {
             try
             {
+                int cont = 0;
                 for (int x = 0; x < img.Width; x++)
                 {
                     for (int y = 0; y < img.Height; y++)
@@ -89,6 +90,8 @@ namespace iMage
                                 c = 0;
                         }
                         img.SetPixel(x, y, Color.FromArgb(a, c, c, c));
+                        cont++;
+                        barraProgresso.Width = (int)((decimal)cont * (decimal)tamanhoMáximoBarraProgresso / (decimal)(img.Width * img.Height));
                     }
                 }
                 return img;
@@ -100,10 +103,11 @@ namespace iMage
             }
         }
 
-        public Bitmap AplicarVermelho (Bitmap img)
+        public Bitmap AplicarVermelho (Bitmap img, Panel barraProgresso, int tamanhoMáximoBarraProgresso)
         {
             try
             {
+                int cont = 0;
                 for (int x = 0; x < img.Width; x++)
                 {
                     for (int y = 0; y < img.Height; y++)
@@ -112,6 +116,8 @@ namespace iMage
                         a = cor.A;
                         r = cor.R;
                         img.SetPixel(x, y, Color.FromArgb(a, r, 0, 0));
+                        cont++;
+                        barraProgresso.Width = (int)((decimal)cont * (decimal)tamanhoMáximoBarraProgresso / (decimal)(img.Width * img.Height));
                     }
                 }
                 return img;
@@ -123,10 +129,11 @@ namespace iMage
             }
         }
 
-        public Bitmap AplicarVerde(Bitmap img)
+        public Bitmap AplicarVerde(Bitmap img, Panel barraProgresso, int tamanhoMáximoBarraProgresso)
         {
             try
             {
+                int cont = 0;
                 for (int x = 0; x < img.Width; x++)
                 {
                     for (int y = 0; y < img.Height; y++)
@@ -135,6 +142,8 @@ namespace iMage
                         a = cor.A;
                         g = cor.G;
                         img.SetPixel(x, y, Color.FromArgb(a, 0, g, 0));
+                        cont++;
+                        barraProgresso.Width = (int)((decimal)cont * (decimal)tamanhoMáximoBarraProgresso / (decimal)(img.Width * img.Height));
                     }
                 }
                 return img;
@@ -146,10 +155,11 @@ namespace iMage
             }
         }
 
-        public Bitmap AplicarAzul(Bitmap img)
+        public Bitmap AplicarAzul(Bitmap img, Panel barraProgresso, int tamanhoMáximoBarraProgresso)
         {
             try
             {
+                int cont = 0;
                 for (int x = 0; x < img.Width; x++)
                 {
                     for (int y = 0; y < img.Height; y++)
@@ -158,6 +168,8 @@ namespace iMage
                         a = cor.A;
                         b = cor.B;
                         img.SetPixel(x, y, Color.FromArgb(a, 0, 0, b));
+                        cont++;
+                        barraProgresso.Width = (int)((decimal)cont * (decimal)tamanhoMáximoBarraProgresso / (decimal)(img.Width * img.Height));
                     }
                 }
                 return img;
@@ -169,10 +181,11 @@ namespace iMage
             }
         }
 
-        public Bitmap AplicarAmarelo(Bitmap img)
+        public Bitmap AplicarAmarelo(Bitmap img, Panel barraProgresso, int tamanhoMáximoBarraProgresso)
         {
             try
             {
+                int cont = 0;
                 for (int x = 0; x < img.Width; x++)
                 {
                     for (int y = 0; y < img.Height; y++)
@@ -182,6 +195,8 @@ namespace iMage
                         r = cor.R;
                         g = cor.G;
                         img.SetPixel(x, y, Color.FromArgb(a, r, g, 0));
+                        cont++;
+                        barraProgresso.Width = (int)((decimal)cont * (decimal)tamanhoMáximoBarraProgresso / (decimal)(img.Width * img.Height));
                     }
                 }
                 return img;
@@ -193,10 +208,11 @@ namespace iMage
             }
         }
 
-        public Bitmap AplicarRosa(Bitmap img)
+        public Bitmap AplicarRosa(Bitmap img, Panel barraProgresso, int tamanhoMáximoBarraProgresso)
         {
             try
             {
+                int cont = 0;
                 for (int x = 0; x < img.Width; x++)
                 {
                     for (int y = 0; y < img.Height; y++)
@@ -206,6 +222,8 @@ namespace iMage
                         r = cor.R;
                         b = cor.B;
                         img.SetPixel(x, y, Color.FromArgb(a, r, 0, b));
+                        cont++;
+                        barraProgresso.Width = (int)((decimal)cont * (decimal)tamanhoMáximoBarraProgresso / (decimal)(img.Width * img.Height));
                     }
                 }
                 return img;
@@ -217,10 +235,11 @@ namespace iMage
             }
         }
 
-        public Bitmap AplicarVerdeAzul(Bitmap img)
+        public Bitmap AplicarVerdeAzul(Bitmap img, Panel barraProgresso, int tamanhoMáximoBarraProgresso)
         {
             try
             {
+                int cont = 0;
                 for (int x = 0; x < img.Width; x++)
                 {
                     for (int y = 0; y < img.Height; y++)
@@ -230,6 +249,8 @@ namespace iMage
                         g = cor.G;
                         b = cor.B;
                         img.SetPixel(x, y, Color.FromArgb(a, 0, g, b));
+                        cont++;
+                        barraProgresso.Width = (int)((decimal)cont * (decimal)tamanhoMáximoBarraProgresso / (decimal)(img.Width * img.Height));
                     }
                 }
                 return img;
@@ -241,10 +262,11 @@ namespace iMage
             }
         }
 
-        public Bitmap AplicarPersonalizado(Bitmap img, int va, int vr, int vg, int vb)
+        public Bitmap AplicarPersonalizado(Bitmap img, int va, int vr, int vg, int vb, Panel barraProgresso, int tamanhoMáximoBarraProgresso)
         {
             try
             {
+                int cont = 0;
                 for (int x = 0; x < img.Width; x++)
                 {
                     for (int y = 0; y < img.Height; y++)
@@ -267,6 +289,8 @@ namespace iMage
                         if (b > 255) 
                             b = 255;
                         img.SetPixel(x, y, Color.FromArgb(a, r, g, b));
+                        cont++;
+                        barraProgresso.Width = (int)((decimal)cont * (decimal)tamanhoMáximoBarraProgresso / (decimal)(img.Width * img.Height));
                     }
                 }
                 return img;
@@ -274,6 +298,34 @@ namespace iMage
             catch (Exception ex)
             {
                 MessageBox.Show("Ocorreu um erro ao aplicar o filtro personalizado: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        public Bitmap InverterCores (Bitmap img, Panel barraProgresso, int tamanhoMáximoBarraProgresso)
+        {
+            try
+            {
+                int cont = 0;
+                for (int x = 0; x < img.Width; x++)
+                {
+                    for (int y = 0; y < img.Height; y++)
+                    {
+                        cor = img.GetPixel(x, y);
+                        a = cor.A;
+                        r = 255 - cor.R;
+                        g = 255 - cor.G;
+                        b = 255 - cor.B;
+                        img.SetPixel(x, y, Color.FromArgb(a, r, g, b));
+                        cont++;
+                        barraProgresso.Width = (int)((decimal)cont * (decimal)tamanhoMáximoBarraProgresso / (decimal)(img.Width * img.Height));
+                    }
+                }
+                return img;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao aplicar o filtro verde-água: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }

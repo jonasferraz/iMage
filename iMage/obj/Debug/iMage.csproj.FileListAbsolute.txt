@@ -8,3 +8,13 @@ E:\2\Git\iMage\iMage\obj\Debug\iMage.csproj.GenerateResource.cache
 E:\2\Git\iMage\iMage\obj\Debug\iMage.exe
 E:\2\Git\iMage\iMage\obj\Debug\iMage.pdb
 E:\2\Git\iMage\iMage\obj\Debug\iMage.Sobre.resources
+E:\2\GitHub\Git\iMage\iMage\bin\Debug\iMage.exe.config
+E:\2\GitHub\Git\iMage\iMage\bin\Debug\iMage.exe
+E:\2\GitHub\Git\iMage\iMage\bin\Debug\iMage.pdb
+E:\2\GitHub\Git\iMage\iMage\obj\Debug\iMage.csprojAssemblyReference.cache
+E:\2\GitHub\Git\iMage\iMage\obj\Debug\iMage.Form1.resources
+E:\2\GitHub\Git\iMage\iMage\obj\Debug\iMage.Properties.Resources.resources
+E:\2\GitHub\Git\iMage\iMage\obj\Debug\iMage.Sobre.resources
+E:\2\GitHub\Git\iMage\iMage\obj\Debug\iMage.csproj.GenerateResource.cache
+E:\2\GitHub\Git\iMage\iMage\obj\Debug\iMage.exe
+E:\2\GitHub\Git\iMage\iMage\obj\Debug\iMage.pdb

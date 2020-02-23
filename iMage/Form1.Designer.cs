@@ -45,11 +45,15 @@
             this.linkResetar = new System.Windows.Forms.LinkLabel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.MenuArquivo = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuAplicar = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuAbrir = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuSalvarComo = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.MenuAplicar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuSobre = new System.Windows.Forms.ToolStripMenuItem();
             this.panelProgressoFundo = new System.Windows.Forms.Panel();
             this.panelProgressoFrente = new System.Windows.Forms.Panel();
             this.checkAlterarAutomaticamente = new System.Windows.Forms.CheckBox();
@@ -80,10 +84,6 @@
             this.labelLuminosidade = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TrackLuminosidade = new System.Windows.Forms.TrackBar();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuSobre = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picImagem)).BeginInit();
             this.ctmPictureBox.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -224,6 +224,7 @@
             "Amarelo (vermelho + verde)",
             "Rosa (vermelho + azul)",
             "Verde-água (verde + azul)",
+            "Inversão de cores",
             "Personalizado"});
             this.comboModo.Location = new System.Drawing.Point(419, 94);
             this.comboModo.Name = "comboModo";
@@ -280,20 +281,6 @@
             this.MenuArquivo.Size = new System.Drawing.Size(61, 20);
             this.MenuArquivo.Text = "Arquivo";
             // 
-            // MenuAplicar
-            // 
-            this.MenuAplicar.Enabled = false;
-            this.MenuAplicar.Name = "MenuAplicar";
-            this.MenuAplicar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.MenuAplicar.Size = new System.Drawing.Size(235, 22);
-            this.MenuAplicar.Text = "Aplicar";
-            this.MenuAplicar.Click += new System.EventHandler(this.MenuAplicar_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(232, 6);
-            // 
             // MenuAbrir
             // 
             this.MenuAbrir.Name = "MenuAbrir";
@@ -316,10 +303,52 @@
             this.MenuSalvarComo.Text = "Salvar imagem como...";
             this.MenuSalvarComo.Click += new System.EventHandler(this.MenuSalvarComo_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(232, 6);
+            // 
+            // MenuAplicar
+            // 
+            this.MenuAplicar.Enabled = false;
+            this.MenuAplicar.Name = "MenuAplicar";
+            this.MenuAplicar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.MenuAplicar.Size = new System.Drawing.Size(235, 22);
+            this.MenuAplicar.Text = "Aplicar";
+            this.MenuAplicar.Click += new System.EventHandler(this.MenuAplicar_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(232, 6);
+            // 
+            // MenuSair
+            // 
+            this.MenuSair.Name = "MenuSair";
+            this.MenuSair.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.MenuSair.Size = new System.Drawing.Size(235, 22);
+            this.MenuSair.Text = "Sair";
+            this.MenuSair.Click += new System.EventHandler(this.MenuSair_Click);
+            // 
+            // ajudaToolStripMenuItem
+            // 
+            this.ajudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuSobre});
+            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.ajudaToolStripMenuItem.Text = "Ajuda";
+            // 
+            // MenuSobre
+            // 
+            this.MenuSobre.Name = "MenuSobre";
+            this.MenuSobre.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.MenuSobre.Size = new System.Drawing.Size(201, 22);
+            this.MenuSobre.Text = "Sobre este aplicativo";
+            this.MenuSobre.Click += new System.EventHandler(this.MenuSobre_Click);
+            // 
             // panelProgressoFundo
             // 
-            this.panelProgressoFundo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelProgressoFundo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelProgressoFundo.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.panelProgressoFundo.Controls.Add(this.panelProgressoFrente);
             this.panelProgressoFundo.Location = new System.Drawing.Point(359, 148);
@@ -330,8 +359,7 @@
             // 
             // panelProgressoFrente
             // 
-            this.panelProgressoFrente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelProgressoFrente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelProgressoFrente.BackColor = System.Drawing.Color.OrangeRed;
             this.panelProgressoFrente.Location = new System.Drawing.Point(0, 0);
             this.panelProgressoFrente.Name = "panelProgressoFrente";
@@ -638,35 +666,6 @@
             this.TrackLuminosidade.TickStyle = System.Windows.Forms.TickStyle.None;
             this.TrackLuminosidade.Value = 100;
             this.TrackLuminosidade.ValueChanged += new System.EventHandler(this.TrackLuminosidade_ValueChanged);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(232, 6);
-            // 
-            // MenuSair
-            // 
-            this.MenuSair.Name = "MenuSair";
-            this.MenuSair.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.MenuSair.Size = new System.Drawing.Size(235, 22);
-            this.MenuSair.Text = "Sair";
-            this.MenuSair.Click += new System.EventHandler(this.MenuSair_Click);
-            // 
-            // ajudaToolStripMenuItem
-            // 
-            this.ajudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuSobre});
-            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.ajudaToolStripMenuItem.Text = "Ajuda";
-            // 
-            // MenuSobre
-            // 
-            this.MenuSobre.Name = "MenuSobre";
-            this.MenuSobre.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.MenuSobre.Size = new System.Drawing.Size(201, 22);
-            this.MenuSobre.Text = "Sobre este aplicativo";
-            this.MenuSobre.Click += new System.EventHandler(this.MenuSobre_Click);
             // 
             // Form1
             // 
